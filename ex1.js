@@ -1,5 +1,5 @@
 //Escreva um programa que recebe um número inteiro e verifica se ele é par ou ímpar
-//utilizando uma estrutura de controle if.
+//utilizando uma estrutura de controle if comtest.
 
 let num1 = 2
 if (num1 % 2 === 0){
