@@ -2,17 +2,17 @@ let taskList   = document.getElementById('task-list')
 let taskInput  = document.getElementById('task-input')
 let addTaskBtn = document.getElementById('add-task-btn')
 
-let filters = document.querySelectorAll('.filter-btn')
+let filters = document.querySelectorAll('.filter-btn') //ponto para indicar que é uma classe
 
 addTaskBtn.addEventListener('click', () =>{
-    let taskText = taskInput.value.trim()
+    let taskText = taskInput.value.trim() //trim vai remover espaços em branco
 
     if(taskText) {
         let li = createTaskElement(taskText)
 
         taskList.appendChild(li)
 
-        taskInput.value = ''
+        taskInput.value = '' //zera o valor de input após adicionar tarefa
     }
 })
 
@@ -72,10 +72,10 @@ function editTask(li) {
     }
 }
 
-filters.forEach(filter => {
+filters.forEach(filter => { //passar por todos os filtros
     filter.addEventListener('click', () => {
-        filters.forEach(f => f.classList.remove('active-filter'))
-        filter.classList.add('active-filter')
+        filters.forEach(f => f.classList.remove('active-filter')) //remover classe ao click
+        filter.classList.add('active-filter') //adicionar classe ao click
 
         let filterType = filter.id
         let allTasks = taskList.querySelectorAll('li')
@@ -86,10 +86,10 @@ filters.forEach(filter => {
                     task.style.display = ''
                     break
                 case 'filter-completed':
-                    task.style.display = task.classList.contains('completed') ? '' : 'none'
+                    task.style.display = task.classList.contains('completed') ? '' : 'none' //deixar tarefas concluidas a amostra
                     break
                 case 'filter-not-completed':
-                    task.style.display = task.classList.contains('completed') ? 'none' : ''
+                    task.style.display = task.classList.contains('completed') ? 'none' : '' //deixar tarefas não concluidas a amostra
                     break 
             }
         })
